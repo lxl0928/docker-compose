@@ -17,7 +17,7 @@ services:
     restart: always
     container_name: pgadmin_dc
     environment:
-      PGADMIN_DEFAULT_EMAIL: lixiaolong@sensoro.com
+      PGADMIN_DEFAULT_EMAIL: youemail@email.org
       PGADMIN_DEFAULT_PASSWORD: admin123
     ports:
       - "5050:80"
