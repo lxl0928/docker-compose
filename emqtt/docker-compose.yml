@@ -1,0 +1,11 @@
+version: '2'
+services:
+  emqttd-docker-service:
+    image: registry.cn-beijing.aliyuncs.com/os-open/emqttd-docker-v2.3.11
+    restart: always
+    ports:
+      - "18083:18083"
+      - "1883:1883"
+      - "8084:8084"
+      - "8883:8883"
+      - "8083:8083"

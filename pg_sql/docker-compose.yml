@@ -1,0 +1,23 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres_dc
+    restart: always
+    volumes:
+      - $PWD/pg_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_DB: aise
+      POSTGRES_PASSWORD: 123456
+    ports:
+      - "5432:5432"
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    restart: always
+    container_name: pgadmin_dc
+    environment:
+      PGADMIN_DEFAULT_EMAIL: lixiaolong@sensoro.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "5050:80"

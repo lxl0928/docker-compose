@@ -1,0 +1,31 @@
+version: '3'
+services:
+  elasticsearch:
+    image: elasticsearch:7.5.1
+    restart: always
+    container_name: elasticsearch
+    networks:
+      - net-es
+    volumes:
+      - $PWD/es_data:/usr/share/elasticsearch/data
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+
+  elastichd:
+    image: containerize/elastichd:latest
+    restart: always
+    container_name: elasticsearch-hd
+    networks:
+      - net-es
+    ports:
+      - "9800:9800"
+    depends_on:
+      - "elasticsearch"
+    links:
+      - "elasticsearch:demo"
+
+networks:
+  net-es:
+    external: false
